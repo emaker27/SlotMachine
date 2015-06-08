@@ -42,7 +42,7 @@ class ViewController: UIViewController {
         setupFirstContainer(firstContainer)
         setupSecondContainer(secondContainer)
         setupThirdContainer(thirdContainer)
-        
+        setupFourthContainer(fourthContainer)
     }
 
     override func didReceiveMemoryWarning() {
@@ -102,7 +102,7 @@ class ViewController: UIViewController {
         containerView.addSubview(self.creditsLabel)
         
         self.betLabel = UILabel()
-        self.betLabel.text = "0"
+        self.betLabel.text = "0000"
         self.betLabel.textColor = UIColor.redColor()
         self.betLabel.font = UIFont(name: "Menlo-Bold", size: 16)
         self.betLabel.sizeToFit()
@@ -112,7 +112,7 @@ class ViewController: UIViewController {
         containerView.addSubview(self.betLabel)
         
         self.winnerPaidLabel = UILabel()
-        self.winnerPaidLabel.text = "0"
+        self.winnerPaidLabel.text = "000000"
         self.winnerPaidLabel.textColor = UIColor.redColor()
         self.winnerPaidLabel.font = UIFont(name: "Menlo-Bold", size: 16)
         self.winnerPaidLabel.sizeToFit()
@@ -120,6 +120,37 @@ class ViewController: UIViewController {
         self.winnerPaidLabel.textAlignment = NSTextAlignment.Center
         self.winnerPaidLabel.backgroundColor = UIColor.darkGrayColor()
         containerView.addSubview(self.winnerPaidLabel)
+        
+        self.creditsTitleLabel = UILabel()
+        self.creditsTitleLabel.text = "Credits"
+        self.creditsTitleLabel.textColor = UIColor.blackColor()
+        self.creditsTitleLabel.font = UIFont(name: "AmericanTypewriter", size: 14)
+        self.creditsTitleLabel.sizeToFit()
+        self.creditsTitleLabel.center = CGPoint(x: containerView.frame.width * kSixth, y: containerView.frame.height * kThird * 2)
+        self.creditsTitleLabel.textAlignment = NSTextAlignment.Center
+        containerView.addSubview(self.creditsTitleLabel)
+        
+        self.betTitleLabel = UILabel()
+        self.betTitleLabel.text = "Bet"
+        self.betTitleLabel.textColor = UIColor.blackColor()
+        self.betTitleLabel.font = UIFont(name: "AmericanTypewriter", size: 14)
+        self.betTitleLabel.sizeToFit()
+        self.betTitleLabel.center = CGPoint(x: containerView.frame.width * kHalf, y: containerView.frame.height * kThird * 2)
+        self.betTitleLabel.textAlignment = NSTextAlignment.Center
+        containerView.addSubview(self.betTitleLabel)
+        
+        self.winnerPaidTitleLabel = UILabel()
+        self.winnerPaidTitleLabel.text = "Winner Paid"
+        self.winnerPaidTitleLabel.textColor = UIColor.blackColor()
+        self.winnerPaidTitleLabel.font = UIFont(name: "AmericanTypewriter", size: 14)
+        self.winnerPaidTitleLabel.sizeToFit()
+        self.winnerPaidTitleLabel.center = CGPoint(x: containerView.frame.width * kSixth * 5, y: containerView.frame.height * kThird * 2)
+        self.winnerPaidTitleLabel.textAlignment = NSTextAlignment.Center
+        containerView.addSubview(self.winnerPaidTitleLabel)
+    }
+    
+    func setupFourthContainer(containerView: UIView) {
+        
     }
 
 }
