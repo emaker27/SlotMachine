@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FE01BB1F1B27B04600F471C4 /* Slot.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE01BB1E1B27B04600F471C4 /* Slot.swift */; };
 		FE66CC0C1B22159000B6A4A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66CC0B1B22159000B6A4A7 /* AppDelegate.swift */; };
 		FE66CC0E1B22159000B6A4A7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66CC0D1B22159000B6A4A7 /* ViewController.swift */; };
 		FE66CC111B22159000B6A4A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE66CC0F1B22159000B6A4A7 /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FE01BB1E1B27B04600F471C4 /* Slot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Slot.swift; sourceTree = "<group>"; };
 		FE66CC061B22159000B6A4A7 /* SlotMachine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlotMachine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE66CC0A1B22159000B6A4A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE66CC0B1B22159000B6A4A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 			children = (
 				FE66CC0B1B22159000B6A4A7 /* AppDelegate.swift */,
 				FE66CC0D1B22159000B6A4A7 /* ViewController.swift */,
+				FE01BB1E1B27B04600F471C4 /* Slot.swift */,
 				FE66CC0F1B22159000B6A4A7 /* Main.storyboard */,
 				FE66CC121B22159000B6A4A7 /* Images.xcassets */,
 				FE66CC141B22159000B6A4A7 /* LaunchScreen.xib */,
@@ -213,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE66CC0E1B22159000B6A4A7 /* ViewController.swift in Sources */,
+				FE01BB1F1B27B04600F471C4 /* Slot.swift in Sources */,
 				FE66CC0C1B22159000B6A4A7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -411,6 +415,7 @@
 				FE66CC271B22159000B6A4A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FE66CC281B22159000B6A4A7 /* Build configuration list for PBXNativeTarget "SlotMachineTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +424,7 @@
 				FE66CC2A1B22159000B6A4A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
