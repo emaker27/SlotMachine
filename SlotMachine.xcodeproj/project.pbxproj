@@ -14,6 +14,7 @@
 		FE66CC131B22159000B6A4A7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE66CC121B22159000B6A4A7 /* Images.xcassets */; };
 		FE66CC161B22159000B6A4A7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE66CC141B22159000B6A4A7 /* LaunchScreen.xib */; };
 		FE66CC221B22159000B6A4A7 /* SlotMachineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66CC211B22159000B6A4A7 /* SlotMachineTests.swift */; };
+		FEBF38C41B28A671003809AA /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEBF38C31B28A671003809AA /* Factory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		FE66CC1B1B22159000B6A4A7 /* SlotMachineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlotMachineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE66CC201B22159000B6A4A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE66CC211B22159000B6A4A7 /* SlotMachineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotMachineTests.swift; sourceTree = "<group>"; };
+		FEBF38C31B28A671003809AA /* Factory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 			children = (
 				FE66CC0B1B22159000B6A4A7 /* AppDelegate.swift */,
 				FE66CC0D1B22159000B6A4A7 /* ViewController.swift */,
+				FEBF38C31B28A671003809AA /* Factory.swift */,
 				FE01BB1E1B27B04600F471C4 /* Slot.swift */,
 				FE66CC0F1B22159000B6A4A7 /* Main.storyboard */,
 				FE66CC121B22159000B6A4A7 /* Images.xcassets */,
@@ -215,6 +218,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEBF38C41B28A671003809AA /* Factory.swift in Sources */,
 				FE66CC0E1B22159000B6A4A7 /* ViewController.swift in Sources */,
 				FE01BB1F1B27B04600F471C4 /* Slot.swift in Sources */,
 				FE66CC0C1B22159000B6A4A7 /* AppDelegate.swift in Sources */,
