@@ -25,11 +25,18 @@ class ViewController: UIViewController {
     var betTitleLabel: UILabel!
     var winnerPaidTitleLabel: UILabel!
     
-    // buttons in fourth container
+    // Buttons in fourth container
     var resetButton: UIButton!
     var betOneButton: UIButton!
     var betMaxButton: UIButton!
     var spinButton: UIButton!
+    
+    var slots: [[Slot]] = []
+    
+    // Stats
+    var credits = 0
+    var currentBet = 0
+    var winnings = 0
     
     let kMarginForView:CGFloat = 10.0
     let kMarginForSlot:CGFloat = 2.0
@@ -48,9 +55,10 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         setupContainerViews()
         setupFirstContainer(firstContainer)
-        setupSecondContainer(secondContainer)
         setupThirdContainer(thirdContainer)
         setupFourthContainer(fourthContainer)
+        
+        hardReset()
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,19 +68,64 @@ class ViewController: UIViewController {
     
     // IBActions
     func resetButtonPressed(button: UIButton) {
-        println("resetButtonPressed")
+        hardReset()
     }
     
     func betOneButtonPressed(button: UIButton) {
-        println("betOneButtonPressed")
+        if credits <= 0 {
+            showAlertWithText(header: "No More Credits", message: "Reset Game")
+        } else {
+            if currentBet < 5 {
+                currentBet += 1
+                credits -= 1
+                updateMainView()
+            } else {
+                showAlertWithText(message: "You can only bet 5 credits at a time!")
+            }
+        }
     }
     
     func betMaxButtonPressed(button: UIButton) {
-        println("betMaxButtonPressed")
+        if ((credits + currentBet) >= 5 && currentBet != 5) {
+            currentBet += (5 - currentBet)
+            credits -= (5 - (50 - credits))
+            println("currentBet: \(currentBet), credits: \(credits)")
+            updateMainView()
+        } else if currentBet == 5 {
+            showAlertWithText(message: "You can only bet 5 credits at a time!")
+        } else if (credits + currentBet) > 0 {
+            currentBet += credits
+            credits = 0
+            updateMainView()
+        } else if (credits + currentBet) <= 0 {
+            showAlertWithText(message: "No More Credits")
+        } else {
+            println("Error in betMaxButtonPressed")
+        }
     }
     
+    // Code from the class. Use this if you have issues with yours.
+//    func betMaxButtonPressed (button: UIButton) {
+//        if credits <= 5 {
+//            showAlertWithText(header: "Not Enough Credits", message: "Bet Less")
+//        }
+//        else {
+//            if currentBet < 5 {
+//                var creditsToBetMax = 5 - currentBet
+//                credits -= creditsToBetMax
+//                currentBet += creditsToBetMax
+//                updateMainView()
+//            }
+//            else {
+//                showAlertWithText(message: "You can only bet 5 credits at a time!")
+//            }
+//        }
+//    }
+    
     func spinButtonPressed(button: UIButton) {
-        println("spinButtonPressed")
+        removeSlotImageViews()
+        slots = Factory.createSlots()
+        setupSecondContainer(self.secondContainer)
     }
 
     func setupContainerViews() {
@@ -107,7 +160,17 @@ class ViewController: UIViewController {
         for var containerNumber = 0; containerNumber < kNumberOfContainers; containerNumber++ {
             
             for var slotNumber = 0; slotNumber < kNumberOfSlots; slotNumber++ {
+                var slot:Slot
                 var slotImageView = UIImageView()
+                
+                if slots.count != 0 {
+                    let slotContainer = slots[containerNumber]
+                    slot = slotContainer[slotNumber]
+                    slotImageView.image = slot.image
+                } else {
+                    slotImageView.image = UIImage(named: "Ace")
+                }
+                
                 slotImageView.backgroundColor = UIColor.yellowColor()
                 slotImageView.frame = CGRect(x: containerView.bounds.origin.x + (containerView.bounds.size.width * CGFloat(containerNumber) * kThird), y: containerView.bounds.origin.y + (containerView.bounds.size.height * CGFloat(slotNumber) * kThird), width: containerView.bounds.width * kThird - kMarginForSlot, height: containerView.bounds.height * kThird - kMarginForSlot)
                 containerView.addSubview(slotImageView)
@@ -217,11 +280,38 @@ class ViewController: UIViewController {
         
     }
 
+    func removeSlotImageViews() {
+        if self.secondContainer != nil {
+            let container: UIView? = self.secondContainer
+            let subViews: Array? = container!.subviews
+            for view in subViews! {
+                view.removeFromSuperview()
+            }
+        }
+    }
     
+    func hardReset() {
+        removeSlotImageViews()
+        slots.removeAll(keepCapacity: true)
+        self.setupSecondContainer(self.secondContainer)
+        self.credits = 50
+        self.winnings = 0
+        currentBet = 0
+        
+        updateMainView()
+    }
     
+    func updateMainView() {
+        self.creditsLabel.text = String(credits)
+        self.betLabel.text = String(currentBet)
+        self.winnerPaidLabel.text = String(winnings)
+    }
     
-    
-    
+    func showAlertWithText(header: String = "Warning", message: String) {
+        var alert = UIAlertController(title: header, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
     
     
     
