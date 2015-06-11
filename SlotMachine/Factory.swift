@@ -21,7 +21,7 @@ class Factory {
         for var containerNumber = 0; containerNumber < kNumberOfContainers; ++containerNumber {
             var slotArray:[Slot] = []
             for var slotNumber = 0; slotNumber < kNumberOfSlots; ++slotNumber {
-                var slot = Slot(value: 0, image: UIImage(named: ""), isRed: true)
+                var slot = Factory.createSlot(slotArray)
                 slotArray.append(slot)
             }
             slots.append(slotArray)
@@ -42,9 +42,22 @@ class Factory {
             randomNumber = Int(arc4random_uniform(UInt32(13)))
         }
         
-        let cards = [["Ace", true], ["Two", true], ["Three", true], ["Four", true], ["Five", false], ["Six", false], ["Seven", true], ["Eight", false], ["Nine", false], ["Ten", true], ["Jack", false], ["Queen", false], ["King", true]]
-        let slot = Slot(value: randomNumber + 1, image: UIImage(named: cards[randomNumber, 0]), isRed: cards[randomNumber, 1])
+        let cards = [
+            ("Ace", true),
+            ("Two", true),
+            ("Three", true),
+            ("Four", true),
+            ("Five", false),
+            ("Six", false),
+            ("Seven", true),
+            ("Eight", false),
+            ("Nine", false),
+            ("Ten", true),
+            ("Jack", false),
+            ("Queen", false),
+            ("King", true)
+        ]
         
-        return slot
+        return Slot(value: randomNumber + 1, image: UIImage(named: cards[randomNumber].0), isRed: cards[randomNumber].1)
     }
 }
